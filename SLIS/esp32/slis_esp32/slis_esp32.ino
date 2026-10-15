@@ -23,7 +23,7 @@ const char* wifiPassword = "Your_WiFi_Password";
 
 // Flask Backend Address (replace with your laptop's IPv4 address on the Wi-Fi network)
 // Example: "http://192.168.1.100:5001" or "http://10.0.0.5:5001"
-const char* backendBaseUrl = "http://172.18.157.14:5001";
+const char* backendBaseUrl = "http://172.18.157.6:5001";
 
 const int seatPins[7] = {22, 23, 32, 33, 25, 26, 27};
 bool lastSensorState[7] = {false, false, false, false, false, false, false};
@@ -177,6 +177,17 @@ void fetchBackendState() {
           int q4 = payload.indexOf("\"", q3 + 1);
           if (q3 != -1 && q4 != -1) {
             String l2 = payload.substring(q3 + 1, q4);
+            if (l1.length() >= 15) {
+              lcdSeatState[0] = l1.charAt(2);
+              lcdSeatState[1] = l1.charAt(6);
+              lcdSeatState[2] = l1.charAt(10);
+              lcdSeatState[3] = l1.charAt(14);
+            }
+            if (l2.length() >= 11) {
+              lcdSeatState[4] = l2.charAt(2);
+              lcdSeatState[5] = l2.charAt(6);
+              lcdSeatState[6] = l2.charAt(10);
+            }
             lcd.setCursor(0, 0);
             lcd.print(l1);
             lcd.setCursor(0, 1);

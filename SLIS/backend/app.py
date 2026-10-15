@@ -178,6 +178,7 @@ def get_seats():
 
     # LCD representation string
     def char_for(s):
+        if s.get("bag_alert"): return "B"
         if s["status"] == "OCCUPIED": return "O"
         if s["status"] == "RESERVED": return "R"
         return "A"
