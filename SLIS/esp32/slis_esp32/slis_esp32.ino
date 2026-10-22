@@ -23,7 +23,7 @@ const char* wifiPassword = "Your_WiFi_Password";
 
 // Flask Backend Address (replace with your laptop's IPv4 address on the Wi-Fi network)
 // Example: "http://192.168.1.100:5001" or "http://10.0.0.5:5001"
-const char* backendBaseUrl = "http://172.18.157.6:5001";
+const char* backendBaseUrl = "http://10.240.171.165:5001";
 
 const int seatPins[7] = {22, 23, 32, 33, 25, 26, 27};
 bool lastSensorState[7] = {false, false, false, false, false, false, false};
